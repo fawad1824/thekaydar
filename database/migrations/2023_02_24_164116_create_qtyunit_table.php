@@ -17,7 +17,9 @@ class CreateQtyunitTable extends Migration
             $table->id();
             $table->string('unit');
             $table->string('name');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -24,10 +24,10 @@ class HomeController extends Controller
     public function index()
     {
 
-        $title = "Specification";
-        $title1 = "Edit Product Specification";
+        $title = "Home";
+        $title1 = "Dashboard";
 
-        return view('home',compact('title','title1'));
+        return view('home', compact('title', 'title1'));
     }
 
     public function register(Request $request)

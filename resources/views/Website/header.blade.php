@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
 
 </head>
+
 <body>
 
     <!-- Preloader -->
@@ -75,14 +76,31 @@
                 <!-- Navigation -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav menu">
-                        <li class="active" ><a href="/">Home</a></li>
+                        <li class="active"><a href="/">Home</a></li>
                         <li><a href="/about">About Us</a></li>
                         <li><a href="/services">Services</a></li>
                         <li><a href="/products">Products</a></li>
                         <li><a href="/vendors">Vendors</a></li>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Register</a></li>
-                        <li><a href="/home">Dashboard</a></li>
+
+                        @guest
+                            <li><a href="/login">Login</a></li>
+
+                            <li><a href="/register">Register</a></li>
+                        @else
+                            <li><a href="/home">Dashboard</a></li>
+                            <li> <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                            </li>
+
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        @endguest
+
                     </ul>
                 </div>
             </div>

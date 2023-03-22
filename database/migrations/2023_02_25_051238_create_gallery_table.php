@@ -15,7 +15,10 @@ class CreateGalleryTable extends Migration
     {
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
+            $table->string('pic');
+            $table->unsignedBigInteger('product_id');
             $table->timestamps();
+            $table->foreign('product_id')->references('id')->on('product')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

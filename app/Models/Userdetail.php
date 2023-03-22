@@ -12,6 +12,7 @@ class Userdetail extends Model
     protected $fillable =
     [
         'phone',
+        'image',
         'whatsapp',
         'street',
         'postcode',

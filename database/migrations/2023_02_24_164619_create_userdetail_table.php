@@ -17,6 +17,7 @@ class CreateUserdetailTable extends Migration
             $table->id();
             $table->unsignedBigInteger('userid');
             $table->string('phone');
+            $table->string('image');
             $table->string('whatsapp');
             $table->string('street');
             $table->string('postcode');

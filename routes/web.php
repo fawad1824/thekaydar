@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductSPController;
+use App\Http\Controllers\vendorCn;
 use App\Http\Controllers\vendorController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\WebsiteSettingController;
@@ -50,13 +51,21 @@ Route::post('/store-specification', [ProductSPController::class, 'storeProductSP
 Route::get('/delete-specification/{id}', [ProductSPController::class, 'deleteProductSP']);
 
 // Products
-Route::get('/products', [ProductController::class, 'products']);
+Route::get('/products-admin', [ProductController::class, 'products'])->name('products');
+Route::get('/products-add', [ProductController::class, 'Addproducts'])->name('add.products');
+Route::get('/products-edit/{id}', [ProductController::class, 'Editproducts'])->name('editproducts');
+Route::get('/products-delete/{id}', [ProductController::class, 'Deleteproducts'])->name('delete.products');
+Route::post('/products-store', [ProductController::class, 'StoreProducts'])->name('store.products');
 
 // Vendor
-Route::get('/vendor', [vendorController::class, 'vendor']);
+Route::get('/vendor', [vendorCn::class, 'index']);
 
 // customer
-Route::get('/customers', [CustomersController::class, 'customers']);
+Route::get('/customers', [vendorCn::class, 'customer']);
+
+// profile
+Route::get('/profile', [vendorCn::class, 'profile']);
+Route::post('/profileadd', [vendorCn::class, 'profileupdate']);
 
 // Orders
 Route::get('/orders', [OrdersController::class, 'orders']);

@@ -20,4 +20,13 @@ class Products extends Model
         'gallery_id',
         'qty_id',
     ];
+
+    public function productuser()
+    {
+        return $this->hasOne(User::class,'id','user_id');
+    }
+    public function category()
+    {
+        return $this->hasOne(Category::class,'id','category_id');
+    }
 }

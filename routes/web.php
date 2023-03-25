@@ -10,6 +10,7 @@ use App\Http\Controllers\vendorCn;
 use App\Http\Controllers\vendorController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\WebsiteSettingController;
+use App\Models\Products;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,12 +26,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+     $products=Products::with('productuser')->paginate(6);
+    return view('welcome',compact('products'));
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/single-product/{id}',[WebsiteController::class,'singleproduct']);
+Route::get('/single-vendor/{id}',[WebsiteController::class,'singlevendor']);
 
 // Categories
 Route::get('/category', [CategoryController::class, 'index'])->name('category');

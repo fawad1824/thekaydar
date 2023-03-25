@@ -84,7 +84,7 @@
                     <div class="dropdown user-pro-body">
                         <div class="">
                             <img alt="user-img" class="avatar avatar-xl brround"
-                                src="images/{{ Auth::user()->userdetail->image }}"><span
+                                src="images/{{ Auth::user()->profile }}"><span
                                 class="avatar-status profile-status bg-green"></span>
                         </div>
                         <div class="user-info">

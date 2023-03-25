@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WebsiteController extends Controller
 {
@@ -36,6 +39,16 @@ class WebsiteController extends Controller
     }
 
     public function booking()
+    {
+        # code...
+    }
+
+    public function singleproduct($id)
+    {
+       $products = Products::with('productuser')->where('id',$id)->first();
+       return view('Website.singleproduct', compact('products'));
+    }
+    public function singlevendor()
     {
         # code...
     }

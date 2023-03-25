@@ -87,4 +87,9 @@ class ProductController extends Controller
         if ($request->id) {
         }
     }
+
+    public function singleproduct($id)
+    {
+        return $id;
+    }
 }

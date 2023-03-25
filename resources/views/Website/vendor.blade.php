@@ -1,5 +1,17 @@
 @extends('Website.master')
 @section('website')
+    <style>
+        .btn.know_btn {
+            background: #ffcb0f none repeat scroll 0 0;
+            border-radius: 30px;
+            color: #fff;
+            font-family: "futura_ltbold", sans-serif;
+            font-size: 11px;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+        }
+    </style>
     <section id="home" class="home">
         <!-- Carousel -->
         <div>

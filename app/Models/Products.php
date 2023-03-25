@@ -29,4 +29,9 @@ class Products extends Model
     {
         return $this->hasOne(Category::class,'id','category_id');
     }
+
+    public function specification()
+    {
+        return $this->hasOne(ProductSP::class,'id','specification');
+    }
 }

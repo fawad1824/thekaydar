@@ -147,7 +147,7 @@
     <!-- Services -->
     <section id="services">
         <div class="container">
-            <h2>Products</h2>
+            <h2>Our Products</h2>
             <div class="row">
                 @foreach ($products as $items)
                     <div class="col-md-4">

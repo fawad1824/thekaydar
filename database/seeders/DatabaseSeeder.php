@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
             'is_admin' => '1',
             'status' => '1',
+            'profile' => 'dummy.png',
         ]);
     }
 }

@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="">Category</label>
+                    <label for="">Product Specification</label>
                     <select name="specification" id="" class="form-control">
                         <option value="">Select Product Specification</option>
                         @foreach ($productSpec as $item)
@@ -58,16 +58,6 @@
                             </div>
                         </div>
 
-                    </div>
-                    <div class="col-lg-6">
-
-                        <div class="col-row">
-                            <div class="col-lg-6"></div>
-                            <div class="col-lg-6">
-                                <label for="">Gallery</label>
-                                <input type="file" required class="form-control" name="gallery[]" multiple>
-                            </div>
-                        </div>
                     </div>
                 </div>
 

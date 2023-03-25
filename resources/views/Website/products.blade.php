@@ -22,43 +22,28 @@
         </div><!-- Carousel end-->
     </section>
 
-
     <!-- Services -->
     <section id="services">
         <div class="container">
-            <h2>OUR PRODUCTS</h2>
+            <h2>Our Products</h2>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="service_item">
-                        <img src="{{ asset('assets/images/service_img1.jpg') }}" alt="Our Services" />
-                        <h3>CONSTRUCTION MANAGEMENT</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                            est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                        <a href="#services" class="btn know_btn">know more</a>
+                @foreach ($products as $items)
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <img style="height: 253px;" src="images/{{ $items->feature_img }}" alt="Our Services" />
+                            <h3>{{ $items->name }}</h3>
+                            <p>{{ $items->desc }}</p>
+                            <p>product by {{ $items->productuser->name }}</p>
+                            <a style="font-size: 11px;" href="/single-product/{{ $items->id }}" class="btn know_btn">View
+                                product</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service_item">
-                        <img src="{{ asset('assets/images/service_img2.jpg') }}" alt="Our Services" />
-                        <h3>RENOVATION</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                            est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                        <a href="#services" class="btn know_btn">know more</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service_item">
-                        <img src="{{ asset('assets/images/service_img3.jpg') }}" alt="Our Services" />
-                        <h3>ARCHITECTURE</h3>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                            est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                        <a href="#services" class="btn know_btn">know more</a>
-                    </div>
+                @endforeach
+                <div class="d-flex justify-content-center">
+                    {!! $products->links() !!}
                 </div>
             </div>
+
         </div>
     </section><!-- Services end -->
 @endsection

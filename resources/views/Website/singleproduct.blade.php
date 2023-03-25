@@ -36,7 +36,11 @@
 
 
     <div style="padding-top: 50px;padding-bottom: 50px" class="container">
-
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-lg-6">
                 <img src="/images/{{ $products->feature_img }}" alt="">
@@ -45,6 +49,7 @@
                 <h4>Product Detail</h4>
                 <p><b>Product Name : </b>{{ $products->name }}</p>
                 <p><b>Product Category : </b>{{ $products->category->name }}</p>
+                <p><b>Product QTY : </b>{{ $products->qty . ' ' . $productsPe->name }}</p>
                 <p><b>Product Price : </b>{{ $products->price }}</p>
                 <p><b>Product Desciption</b>
                     <br>
@@ -55,12 +60,21 @@
                 <div class=" row">
                     <!-- panel-footer -->
                     <div class="col-xs-3 text-left">
-                        <div class="previous">
-                            <button style="background: #FFCB0F; border: none;" type="button" class="btn btn-primary btn-lg"
-                                data-toggle="modal" data-target="#exampleModalCenter">
-                                Booking Now
-                            </button>
-                        </div>
+                        @if ($products->qty != '0')
+                            <div class="previous">
+                                <button style="background: #FFCB0F; border: none;" type="button"
+                                    class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Booking Now
+                                </button>
+                            </div>
+                        @else
+                            <div class="previous">
+                                <button style="background: #FFCB0F; border: none;" class="btn btn-primary btn-lg">
+                                    Out of Stock
+                                </button>
+                            </div>
+                        @endif
+
                     </div>
                     {{-- <div class="col-xs-3 text-right">
                         <div class="next">
@@ -110,38 +124,93 @@
                 </div>
                 <div class="modal-body">
                     @if (Auth::check())
-                        @if (Auth::user()->name && Auth::user()->email && Auth::user()->userdetail->phone && Auth::user()->userdetail->whatsapp)
-                            <form action="">
+                        @if ($booking)
+                            <p>Your Already Book this </p>
+                            <a href="/products" style="background: #FFCB0F; border: none;" class="btn btn-primary">View More
+                                Products</a>
+                        @else
+                            <form action="/productbooking" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label for="">Name</label>
-                                    <input type="text" class="form-control" name="name"
+                                    <input type="text" readonly class="form-control" name="name"
                                         value="{{ Auth::user()->name }}">
+                                    <input type="hidden" hidden class="form-control" name="productID"
+                                        value="{{ $id }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input type="email" class="form-control" name="email"
+                                    <input type="email" readonly class="form-control" name="email"
                                         value="{{ Auth::user()->email }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone</label>
-                                    <input type="tele" class="form-control" name="tele"
-                                        value="{{ Auth::user()->userdetail->phone }}">
+                                    <input type="tel" required class="form-control" name="tele">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Whats App</label>
-                                    <input type="tele" class="form-control" name="whats"
-                                        value="{{ Auth::user()->userdetail->whatsapp }}">
+                                    <input type="tel" required class="form-control" name="whats">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Address</label>
+                                    <input type="text" required class="form-control" name="Address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Qty</label>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <input type="number" required class="form-control" name="qty">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" required readonly class="form-control" name="unit"
+                                                value="{{ $productsPe->name }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" style="background: #FFCB0F;border: none;"
+                                        class="btn btn-primary">Book Now</button>
                                 </div>
                             </form>
                         @endif
                     @else
+                        @if (!Auth::user())
+                            <p>Please Login</p>
+                            <a href="/login" style="background: #FFCB0F; border: none;"
+                                class="btn btn-primary"target="_blank">Login page</a>
+                        @else
+                        @endif
                     @endif
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <section id="services">
+        <div class="container">
+            <h2>Other Products</h2>
+            <div class="row">
+                @foreach ($productsa as $items)
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <img style="height: 253px;" src="/images/{{ $items->feature_img }}" alt="Our Services" />
+                            <h3>{{ $items->name }}</h3>
+                            <p>{{ $items->desc }}</p>
+                            <p>product by {{ $items->productuser->name }}</p>
+                            <a style="font-size: 11px;" href="/single-product/{{ $items->id }}"
+                                class="btn know_btn">View product</a>
+                        </div>
+                    </div>
+                @endforeach
+                <div class="d-flex justify-content-center">
+                    {!! $productsa->links() !!}
+                </div>
+            </div>
+
+        </div>
+    </section><!-- Services end -->
 @endsection

@@ -32,7 +32,7 @@
                     @foreach ($product as $index => $item)
                         <tr>
                             <td>{{ $index + 1 }}</td>
-                            <td><img style="max-width: 110px" src="images/{{ $item->feature_img }}"
+                            <td><img style="max-width: 62px" src="images/{{ $item->feature_img }}"
                                     alt="{{ $item->feature_img }}"></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->user_id }}</td>

@@ -130,6 +130,14 @@
                     @endif
 
 
+                    @if (Auth::user()->role == '1' || Auth::user()->role == '2')
+                        <li class="slide">
+                            <a class="side-menu__item" href="/orderss">
+                                <span class="side-menu__label">Orders</span>
+                            </a>
+                        </li>
+                    @endif
+
                     @if (Auth::user()->role == '1')
                         <li class="slide">
                             <a class="side-menu__item" href="/all-order">

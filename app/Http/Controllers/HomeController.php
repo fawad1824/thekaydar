@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\Productreview;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,7 +30,11 @@ class HomeController extends Controller
         $title = "Home";
         $title1 = "Dashboard";
 
-        return view('home', compact('title', 'title1'));
+        $product = Products::count();
+        $productRe = Productreview::count();
+        $productBook = Booking::count();
+
+        return view('home', compact('title', 'title1','product','productRe','productBook'));
     }
 
     public function register(Request $request)

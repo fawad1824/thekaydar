@@ -22,7 +22,6 @@
                         <th class="wd-lg-15p ">Qty</th>
                         <th class="wd-lg-15p ">Price</th>
                         <th class="wd-lg-15p ">Unit</th>
-                        <th class="wd-lg-20p ">Status</th>
                         <th class="wd-lg-20p ">Action</th>
                     </tr>
                 </thead>
@@ -35,23 +34,24 @@
                             <td>{{ $item->qty }}</td>
                             <td>{{ $item->user->price }}</td>
                             <td>{{ $item->unit }}</td>
-                            <td>
-                                @if ($item->status == '1')
-                                    <span>Pending</span>
-                                @else
-                                    <span>Complete</span>
-                                @endif
-                            </td>
-                            <td>
-                                @if (!$orderR)
-                                    <a class="btn btn-primary btn-sm" href="/reviewp/{{ $item->product_id }}">Review</a>
-                                @else
-                                    Already review
-                                @endif
-                            </td>
 
+
+                            <td>
+                                @if ($item->status == '2')
+                                    <a class="btn btn-primary btn-sm">Completed</a>
+                                @elseif($item->status == '1')
+                                    <a class="btn btn-primary btn-sm" href="/orderstatus/{{ $item->id }}/2">Deliver
+                                        now</a>
+                                @endif
+
+
+                                @if ($item->status == '4')
+                                    Your Reject Order
+                                @elseif($item->status == '1')
+                                    <a class="btn btn-danger btn-sm" href="/orderstatus/{{ $item->id }}/4">Reject</a>
+                                @endif
+                            </td>
                         </tr>
-                        {{-- @endif --}}
                     @endforeach
                 </tbody>
             </table>

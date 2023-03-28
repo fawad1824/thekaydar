@@ -14,11 +14,12 @@
                 </div>
             @endif
 
-            <form action="" method="post">
+            <form action="/reviewpadd" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="">Product Name</label>
                     <input type="text" readonly value="{{ $product->name }}" name="name" class="form-control">
+                    <input type="text" hidden readonly value="{{ $product->id }}" name="id" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Write Review</label>

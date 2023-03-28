@@ -54,7 +54,7 @@
                     <p>sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
                         voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
                         laboriosam, nisi ut aliquid ex ea commodi consequatur? </p>
-                    <a class="btn know_btn">know more</a>
+                    {{-- <a class="btn know_btn">know more</a> --}}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-lg-offset-1">

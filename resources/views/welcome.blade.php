@@ -15,8 +15,8 @@
                             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
                                 consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
                                 quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                            <a class="btn know_btn">know more</a>
-                            <a class="btn know_btn">view project</a>
+                            {{-- <a class="btn know_btn">know more</a>
+                            <a class="btn know_btn">view project</a> --}}
                         </div>
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
                                 consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
                                 quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                            <a class="btn know_btn">know more</a>
-                            <a class="btn know_btn">view project</a>
+                            {{-- <a class="btn know_btn">know more</a>
+                            <a class="btn know_btn">view project</a> --}}
                         </div>
                     </div>
                 </div>
@@ -45,8 +45,8 @@
                             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
                                 consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
                                 quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                            <a class="btn know_btn">know more</a>
-                            <a class="btn know_btn">view project</a>
+                            {{-- <a class="btn know_btn">know more</a>
+                            <a class="btn know_btn">view project</a> --}}
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,8 @@
                             <h3>{{ $items->name }}</h3>
                             <p>{{ $items->desc }}</p>
                             <p>product by {{ $items->productuser->name }}</p>
-                            <a style="font-size: 11px;" href="/single-product/{{ $items->id }}" class="btn know_btn">View product</a>
+                            <a style="font-size: 11px;" href="/single-product/{{ $items->id }}" class="btn know_btn">View
+                                product</a>
                         </div>
                     </div>
                 @endforeach
@@ -173,43 +174,27 @@
     <section id="testimonial">
         <div class="container text-center testimonial_area">
             <h2>Customer Reviews</h2>
-            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-                dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
-                dolor sit amet, consectetur, adipisci velit,</p>
-
             <div class="row">
-                <div class="col-md-4">
-                    <div class="testimonial_item">
-                        <div class="testimonial_content text-left">
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                                quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
+                @foreach ($productsRe as $item)
+                    <div class="col-md-4">
+                        <div class="testimonial_item">
+                            <div class="testimonial_content text-left">
+                                <label for="">Reviw</label>
+                                <p>
+                                    {{ $item->review }}
+                                </p>
+                                <label for="">Product Name</label>
+                                <p>
+                                    {{ $item->product->name }}
+                                </p>
+                            </div>
+                            <img src="/images/{{ $item->user->profile }}" alt="Testimonial" />
+                            <p class="worker_name">{{ $item->username }}</p>
                         </div>
-                        <img src="{{ asset('assets/images/testimonial_img1.png') }}" alt="Testimonial" />
-                        <p class="worker_name">john smith</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial_item">
-                        <div class="testimonial_content">
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                                quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                        </div>
-                        <img src="{{ asset('assets/images/testimonial_img2.png') }}" alt="Testimonial" />
-                        <p class="worker_name">john smith</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="testimonial_item">
-                        <div class="testimonial_content">
-                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                                quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-                        </div>
-                        <img src="{{ asset('assets/images/testimonial_img1.png') }}" alt="Testimonial" />
-                        <p class="worker_name">john smith</p>
-                    </div>
+                @endforeach
+                <div class="d-flex justify-content-center">
+                    {!! $products->links() !!}
                 </div>
             </div>
         </div>

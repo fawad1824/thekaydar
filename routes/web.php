@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomersController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductSPController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\vendorCn;
 use App\Http\Controllers\vendorController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\WebsiteSettingController;
+use App\Models\Productreview;
 use App\Models\Products;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,18 +28,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-     $products=Products::with('productuser')->paginate(6);
-    return view('welcome',compact('products'));
+    $products = Products::with('productuser')->paginate(6);
+    $productsRe = Productreview::with('product', 'user')->paginate(6);
+    return view('welcome', compact('products', 'productsRe'));
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/single-product/{id}',[WebsiteController::class,'singleproduct']);
-Route::get('/single-vendor/{id}',[WebsiteController::class,'singlevendor']);
+Route::get('/single-product/{id}', [WebsiteController::class, 'singleproduct']);
+Route::get('/single-vendor/{id}', [WebsiteController::class, 'singlevendor']);
 
-Route::post('/productbooking',[WebsiteController::class,'bookingproduct']);
+Route::post('/productbooking', [WebsiteController::class, 'bookingproduct']);
 
 // Categories
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
@@ -83,8 +86,12 @@ Route::get('/vendor-product/{id}', [ContactController::class, 'vendorproduct']);
 Route::get('/customer-product/{id}', [ContactController::class, 'customerproduct']);
 
 Route::get('/all-order', [ContactController::class, 'customerorder']);
+Route::get('/orderss', [ContactController::class, 'orderss']);
 Route::get('/product-review', [ContactController::class, 'reviewProduct']);
 Route::get('/reviewp/{id}', [ContactController::class, 'reviewProductCreate']);
+Route::post('/reviewpadd', [ContactController::class, 'reviewpadd']);
+
+Route::get('/orderstatus/{id}/{status}', [ContactController::class, 'orderstatus']);
 
 
 

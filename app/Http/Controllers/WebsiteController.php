@@ -27,11 +27,14 @@ class WebsiteController extends Controller
     }
     public function vendors()
     {
-        return view('Website.vendor');
+        $user=User::where('role','2')->get();
+        return view('Website.vendor',compact('user'));
     }
-    public function vendorsProduct()
+    public function vendorsProduct($id)
     {
-        # code...
+        $user=User::where('id',$id)->first();
+         $products=Products::where('user_id',$id)->with('productuser')->paginate(6);
+        return view('Website.singlevendor',compact('user','products'));
     }
     public function about()
     {
@@ -52,8 +55,7 @@ class WebsiteController extends Controller
         $productsa = Products::with('productuser')->paginate(3);
         $products = Products::with('productuser')->where('id', $id)->first();
         $productsPe = ProductSP::where('id', $products->specification)->first();
-        $booking = Booking::where('id', $id)->where('user_id', Auth::user()->id)->where('status', '1')->first();
-        return view('Website.singleproduct', compact('products', 'productsa', 'id', 'productsPe', 'booking'));
+        return view('Website.singleproduct', compact('products', 'productsa', 'id', 'productsPe'));
     }
     public function singlevendor()
     {

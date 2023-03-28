@@ -40,28 +40,15 @@
         <div class="container">
             <h2>OUR Vendors</h2>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="service_item">
-                        <img src="{{ asset('assets/images/service_img1.jpg') }}" alt="Our Services" />
-                        <h3>CONSTRUCTION MANAGEMENT</h3>
-
-                        <a href="#services" class="btn know_btn">know more</a>
+                @foreach ($user as $item)
+                    <div class="col-md-4">
+                        <div class="service_item">
+                            <img style="height: 282px;" src="images/{{ $item->profile }}" alt="Our Services" />
+                            <h3>{{ $item->name }}</h3>
+                            <a href="/vendor/{{ $item->id }}" class="btn know_btn">View Profile</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service_item">
-                        <img src="{{ asset('assets/images/service_img2.jpg') }}" alt="Our Services" />
-                        <h3>RENOVATION</h3>
-                        <a href="#services" class="btn know_btn">know more</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service_item">
-                        <img src="{{ asset('assets/images/service_img3.jpg') }}" alt="Our Services" />
-                        <h3>ARCHITECTURE</h3>
-                        <a href="#services" class="btn know_btn">know more</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section><!-- Services end -->

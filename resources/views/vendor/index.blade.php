@@ -32,8 +32,8 @@
                             <td></td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
-                            <td>{{ $item->userdetail->phone }}</td>
-                            <td>{{ $item->userdetail->address }}</td>
+                            <td>{{ $item->phone }}</td>
+                            <td>{{ $item->address }}</td>
                             <td style="display: flex">
                                 <a class="btn btn-sm btn-primary m-1" href="/vendor-product/{{ $item->id }}">
                                     Orders

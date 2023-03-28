@@ -32,12 +32,12 @@
                     </div>
                     <div class="form-group">
                         <label for="">Phone</label>
-                        <input type="tel" name="phone" value="{{ $user->userdetail->phone ?? '' }}"
+                        <input type="tel" name="phone" value="{{ $user->phone ?? '' }}"
                             class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Whats App</label>
-                        <input type="tel" name="whatsaapp" value="{{ $user->userdetail->whatsapp ?? '' }}"
+                        <input type="tel" name="whatsaapp" value="{{ $user->whatsapp ?? '' }}"
                             class="form-control">
                     </div>
                     <div class="form-group">
@@ -47,17 +47,17 @@
                     </div>
                     <div class="form-group">
                         <label for="">Postal Code</label>
-                        <input type="number" name="postal" value="{{ $user->userdetail->postcode ?? '' }}"
+                        <input type="number" name="postal" value="{{ $user->postcode ?? '' }}"
                             class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">City</label>
-                        <input type="text" name="city" value="{{ $user->userdetail->city ?? '' }}"
+                        <input type="text" name="city" value="{{ $user->city ?? '' }}"
                             class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Address</label>
-                        <input type="text" name="address" value="{{ $user->userdetail->address ?? '' }}"
+                        <input type="text" name="address" value="{{ $user->address ?? '' }}"
                             class="form-control">
                     </div>
                     <div class="form-group">

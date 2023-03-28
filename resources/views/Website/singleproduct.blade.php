@@ -105,7 +105,6 @@
                                 alt=""></p>
                         <p><b>Name : </b>{{ $products->productuser->name }}</p>
                     </a>
-
                 </div>
 
 
@@ -124,6 +123,14 @@
                 </div>
                 <div class="modal-body">
                     @if (Auth::check())
+                        @php
+
+                            $booking = DB::table('booking')
+                                ->where('id', $id)
+                                ->where('user_id', Auth::user()->id)
+                                ->where('status', '1')
+                                ->first();
+                        @endphp
                         @if ($booking)
                             <p>Your Already Book this </p>
                             <a href="/products" style="background: #FFCB0F; border: none;" class="btn btn-primary">View More

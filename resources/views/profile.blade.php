@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Street</label>
-                        <input type="text" name="street" value="{{ $user->userdetail->street ?? '' }}"
+                        <input type="text" name="street" value="{{ $user->street ?? '' }}"
                             class="form-control">
                     </div>
                     <div class="form-group">

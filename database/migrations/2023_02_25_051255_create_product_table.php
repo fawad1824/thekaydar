@@ -23,6 +23,7 @@ class CreateProductTable extends Migration
             $table->string('price');
             $table->string('desc');
             $table->string('feature_img');
+            $table->string('user_id');
 
 
             $table->timestamps();

@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $title = "Dashboard";
         $title1 = "Categories";
 
-        $category = Category::where('user_id',Auth::user()->id)->get();
+        $category = Category::all();
         return view('category.index', compact('title', 'title1', 'category'));
     }
 

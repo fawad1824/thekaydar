@@ -20,7 +20,7 @@ class vendorCn extends Controller
     {
         $title1 = "Customer";
         $title = "Dashboard";
-        $user = User::with('userdetail')->where('role', '1')->get();
+        $user = User::where('role', '1')->get();
         return view('vendor.index', compact('title', 'title1', 'user'));
     }
     public function profile()
@@ -32,8 +32,6 @@ class vendorCn extends Controller
     }
     public function profileupdate(Request $request)
     {
-        // return $request->all();
-
         $user = User::where('id', $request->id)->first();
         $user->name = $request->name;
         $user->email = $request->email;

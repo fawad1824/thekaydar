@@ -79,6 +79,12 @@ Route::get('/orders', [OrdersController::class, 'orders']);
 
 // contact
 Route::get('/admin-contact', [ContactController::class, 'AdminController']);
+Route::get('/vendor-product/{id}', [ContactController::class, 'vendorproduct']);
+Route::get('/customer-product/{id}', [ContactController::class, 'customerproduct']);
+
+Route::get('/all-order', [ContactController::class, 'customerorder']);
+Route::get('/product-review', [ContactController::class, 'reviewProduct']);
+Route::get('/reviewp/{id}', [ContactController::class, 'reviewProductCreate']);
 
 
 

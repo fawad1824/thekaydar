@@ -35,7 +35,7 @@
                             <td>{{ $item->phone }}</td>
                             <td>{{ $item->address }}</td>
                             <td style="display: flex">
-                                <a class="btn btn-sm btn-primary m-1" href="/vendor-product/{{ $item->id }}">
+                                <a class="btn btn-sm btn-primary m-1" href="/customer-product/{{ $item->id }}">
                                     Orders
                                     </a>
                             </td>

@@ -19,6 +19,7 @@ class Products extends Model
         'feature_img',
         'gallery_id',
         'qty_id',
+        'user_id'
     ];
 
     public function productuser()

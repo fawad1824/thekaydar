@@ -19,7 +19,7 @@ class ProductController extends Controller
     {
         $title = "Home";
         $title1 = "Products";
-        $product = Products::where('user_id', Auth::user()->id)->get();
+        $product = Products::all();
 
         return view('products.index', compact('title', 'title1', 'product'));
     }

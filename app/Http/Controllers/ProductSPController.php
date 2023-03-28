@@ -18,7 +18,7 @@ class ProductSPController extends Controller
         $title = "Dashboard";
         $title1 = "Product Specification";
 
-        $ProductSP = ProductSP::where('user_id',Auth::user()->id)->get();
+        $ProductSP = ProductSP::all();
         return view('ProductSP.index', compact('title', 'title1', 'ProductSP'));
     }
 

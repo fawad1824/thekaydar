@@ -27,14 +27,14 @@ class WebsiteController extends Controller
     }
     public function vendors()
     {
-        $user=User::where('role','2')->get();
-        return view('Website.vendor',compact('user'));
+        $user = User::where('role', '2')->get();
+        return view('Website.vendor', compact('user'));
     }
     public function vendorsProduct($id)
     {
-        $user=User::where('id',$id)->first();
-         $products=Products::where('user_id',$id)->with('productuser')->paginate(6);
-        return view('Website.singlevendor',compact('user','products'));
+        $user = User::where('id', $id)->first();
+        $products = Products::where('user_id', $id)->with('productuser')->paginate(6);
+        return view('Website.singlevendor', compact('user', 'products'));
     }
     public function about()
     {
@@ -67,6 +67,7 @@ class WebsiteController extends Controller
         if ($request->productID) {
 
             $productsss =  Products::where('id', $request->productID)->first();
+            $productsuser =  Products::where('id', $request->productID)->first();
             if ($request->qty >= $productsss->qty) {
                 return redirect()->back()->with("message", "This QTY " . $request->qty . " Not Available Right Now");
             }
@@ -77,6 +78,7 @@ class WebsiteController extends Controller
         }
         $booking = new Booking();
         $booking->user_id = Auth::user()->id;
+        $booking->user_product = $productsuser->user_id;
         $booking->product_id = $request->productID;
         $booking->email = $request->email;
         $booking->tele = $request->tele;

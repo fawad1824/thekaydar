@@ -22,4 +22,10 @@ class Booking extends Model
         'unit',
         'status',
     ];
+
+    public function user()
+    {
+        return $this->hasOne(Products::class,'id','product_id');
+    }
+
 }

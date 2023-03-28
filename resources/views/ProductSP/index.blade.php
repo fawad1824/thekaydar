@@ -26,6 +26,8 @@
                 </thead>
                 <tbody>
                     @foreach ($ProductSP ?? '' as $index => $item)
+                    @if ($item->user_id == Auth::user()->id || Auth::user()->is_admin == '1')
+
                         <tr>
                             <td class=" tx-medium tx-inverse">{{ $index + 1 }}</td>
                             <td class=" tx-medium tx-inverse">{{ $item->id }}</td>
@@ -36,6 +38,7 @@
                                 <a href="/delete-specification/{{ $item->id }}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

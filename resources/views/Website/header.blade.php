@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Thekaydaar</title>
+    <title>E Thekaydaar</title>
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Custom Fonts -->
@@ -70,8 +70,10 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href=""><img class="logo"
-                            src="{{ asset('assets/images/logo.png') }}" alt=""></a>
+                    <a class="navbar-brand" href="">
+                        {{-- Thekaydaar --}}
+                        <img style="max-width: 108px;" class="logo" src="{{ asset('assets/images/logo.png') }}" alt="">
+                    </a>
                 </div>
                 <!-- Navigation -->
                 <div class="collapse navbar-collapse" id="navbar-menu">

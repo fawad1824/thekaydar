@@ -100,10 +100,6 @@
                 <div class="col-md-8 col-md-offset-2">
                     <div class="head_title">
                         <h2>WHY CHOOSE US?</h2>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                            est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>
-
                     </div>
                 </div>
             </div>
@@ -112,32 +108,28 @@
                     <div class="why_us_item">
                         <span class="fa fa-leaf"></span>
                         <h4>We deliver quality</h4>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni </p>
+                        <p>we pride ourselves on delivering exceptional quality in everything we do. From our products and services to our customer support, we are committed to exceeding your expectations every step of the way.  </p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="why_us_item">
                         <span class="fa fa-futbol-o"></span>
                         <h4>Always on time</h4>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni</p>
+                        <p>We understand that quality is essential to building strong, long-lasting relationships with our customers, which is why we strive to deliver the highest level of excellence in all aspects of our business.</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="why_us_item">
                         <span class="fa fa-group"></span>
                         <h4>We are pasionate</h4>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni</p>
+                        <p>Our team is made up of skilled professionals who are passionate about their work and dedicated to providing the best possible results. We use only the best materials and technology to ensure that our products</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="why_us_item">
                         <span class="fa fa-line-chart"></span>
                         <h4>Professional Services</h4>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni</p>
+                        <p>We use only the best materials and technology to ensure that our products and services are of the highest quality, and we are constantly refining our processes to improve our performance and exceed industry standards.</p>
                     </div>
                 </div>
             </div>
